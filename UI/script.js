@@ -541,7 +541,7 @@ function createListItem() {
     let inputs = listElement.value.trim(); // Trim entry
     liElmnt.push(inputs); // Push new list element
     listElement.value = ""; // Reset input to empty string
-    if (user.Dashboard[listId].length == 0) {
+    if (user.Dashboard[listId] = undefined || user.Dashboard[listId].length == 0) {
       // If list is empty
       user.Dashboard[listId] = liElmnt;
     } else {
