@@ -666,9 +666,11 @@ function deletePreview(item) {
 // Function to change todo list title
 function changeTitle() {
   let prev = listId.split(" ").join("-"); // Generate preview ID
+  let prevUL = "preview-" + prev; // Generate list preview ID
   let newTitle = prompt("Please enter new title:", listId); // Prompt user for new value
   let newHeader = document.getElementById("header-title"); // Get header element
   let prevTitle = document.getElementById(prev); // Get preview element
+  let prevList = document.getElementById(prevUL); // Get preview list element
   let usr = currentUser(userId); // User info
   if (newTitle == null || newTitle == "") { // If cancelled or empty entry
     alert("Process has been cancelled.");
@@ -683,7 +685,9 @@ function changeTitle() {
       newHeader.innerText = newTitle; // Set new header title
       prevTitle.firstChild.innerText = newTitle; // Set preview title
       let newPrev = newTitle.split(" ").join("-"); // Generate new id
+      let newPrevList = "preview-" + newPrev; // Generate new list id
       prevTitle.id = newPrev; // Set id value
+      prevList.id = newPrevList; // Set UL id value
     } else { // If already in use send alert
       alert("List title must be unique!");
     }
