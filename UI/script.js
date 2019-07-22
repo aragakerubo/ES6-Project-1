@@ -455,10 +455,10 @@ function editAcc() {
 // Function for User confirms deletion process
 function confirmDelete() { // Confirm deletion process
   confirm(
-    "Are you sure you want to delete your account?\nAll your details will be deleted."
-  )
-    ? deleteAccount()
-    : alert("Process Aborted!"); // Abort deletion process
+      "Are you sure you want to delete your account?\nAll your details will be deleted."
+    ) ?
+    deleteAccount() :
+    alert("Process Aborted!"); // Abort deletion process
 }
 // Function to Delete Current User Account
 function deleteAccount() {
@@ -541,7 +541,7 @@ function createListItem() {
     let inputs = listElement.value.trim(); // Trim entry
     liElmnt.push(inputs); // Push new list element
     listElement.value = ""; // Reset input to empty string
-    if (user.Dashboard[listId] = undefined || user.Dashboard[listId].length == 0) {
+    if (user.Dashboard[listId] == undefined || user.Dashboard[listId].length == 0) {
       // If list is empty
       user.Dashboard[listId] = liElmnt;
     } else {
@@ -679,7 +679,8 @@ function changeTitle() {
       return;
     } else if (!Object.keys(usr.Dashboard).includes(newTitle)) {
       // If user keys don't exist already
-      usr.Dashboard[newTitle] = usr.Dashboard[listId]; // Reassign to new value
+      let arrayList = usr.Dashboard[listId]; // Reassign to new value
+      usr.Dashboard[newTitle] = arrayList;
       delete usr.Dashboard[listId]; // Delete old value
       storage.setItem(userId, JSON.stringify(usr)); // Save changes
       newHeader.innerText = newTitle; // Set new header title
