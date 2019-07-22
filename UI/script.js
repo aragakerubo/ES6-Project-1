@@ -688,6 +688,7 @@ function changeTitle() {
       let newPrevList = "preview-" + newPrev; // Generate new list id
       prevTitle.id = newPrev; // Set id value
       prevList.id = newPrevList; // Set UL id value
+      listId = newTitle; // Reassign list title
     } else { // If already in use send alert
       alert("List title must be unique!");
     }
