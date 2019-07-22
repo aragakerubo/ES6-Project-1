@@ -675,6 +675,7 @@ function changeTitle() {
   if (newTitle == null || newTitle == "") { // If cancelled or empty entry
     alert("Process has been cancelled.");
   } else {
+    newTitle = newTitle.trim(); // Trim entry
     if (newTitle == listId) { // If value unchanged
       return;
     } else if (!Object.keys(usr.Dashboard).includes(newTitle)) {
